@@ -1,27 +1,36 @@
-# ☔ Weather Pro App — Real-time AI Weather Prediction
+# ☔ Weather Pro — Real-time AI Weather Prediction Pipeline
 
-This is a full-stack web application designed to provide current weather data, a 5-day forecast, and a real-time, AI-driven probability prediction for rain.
-
-The project seamlessly integrates live data from external APIs with a custom-trained Machine Learning model deployed on a Flask backend.
+A complete end-to-end web application that integrates live weather data from OpenWeatherMap APIs with a trained Machine Learning model to predict the probability of rain in real time. The focus is on robust deployment capability.
 
 ---
 
-## 🚀 Project Architecture (Tech Stack)
+## 📌 Project Overview
 
-The application follows a robust client-server architecture:
+This project provides users with current weather information and a multi-day forecast, but its key feature is the **AI-driven rain prediction**. The system quickly processes live atmospheric variables to give a simple, actionable binary forecast ("Probable" / "Not Probable").
 
-| Component | Technology / Library | Primary Role |
-| :--- | :--- | :--- |
-| **Frontend (UI)** | HTML, CSS, **JavaScript** | Displays the map, controls, and visualizes data using the **Leaflet.js** library. |
-| **Backend (API Server)** | **Python (Flask)** | Handles routing, API calls to OpenWeatherMap, loads the ML model, and executes the rain prediction logic. |
-| **Machine Learning** | **Scikit-learn (Random Forest)** | Provides the core intelligence for the binary rain prediction. |
-| **Data Source** | **OpenWeatherMap APIs** | Supplies live data for current weather, 5-day forecasts, and geographical coordinates (Geocoding). |
+---
+
+## 🎥 Demo Video
+📺 Watch the full application demo here:
+
+[شاهد العرض التوضيحي الكامل على Google Drive](https://drive.google.com/file/d/1h2zLxATfggSXXizvY9eTxDyYera7Sq7V/view?usp=sharing)
+
+---
+
+## 🚀 Features
+
+- **Full-Stack Deployment:** Integrated Frontend (JavaScript/Leaflet) and Backend (Flask/Python).
+- **Live Data Acquisition:** Fetching current and forecast data via OpenWeatherMap APIs.
+- **AI Integration:** Hosting and executing the trained ML model in the Flask server.
+- **Data Filtering Logic:** Optimized 5-day forecast by selecting the entry closest to noon (12:00 PM) for each day.
+- **Geolocation Support:** Search by City Name (Geocoding) or by Coordinates (Map Click/GPS).
+- **Theming:** Supports both Dark and Light UI modes.
 
 ---
 
 ## 🧠 Machine Learning Model Details
 
-The core functionality of the app is its rain prediction feature, which runs an inference every time a user searches for a location.
+The model is a **Binary Classifier** deployed via the Flask backend (`app.py` endpoint: `/predict_weather`).
 
 ### 1. Model Specifications
 
@@ -29,11 +38,12 @@ The core functionality of the app is its rain prediction feature, which runs an 
 | :--- | :--- |
 | **Algorithm Used** | **Random Forest Classifier** 🌳 |
 | **Model Type** | **Binary Classification** (Predicts 'Rain' or 'No Rain') |
-| **Deployment File** | `rain_predictor_model.pkl` (Loaded via `joblib` in `app.py`) |
+| **Deployment File** | `rain_predictor_model.pkl` (Loaded via `joblib`) |
+| **Prediction Output** | `محتمل` (Probable) or `غير محتمل` (Not Probable) |
 
 ### 2. Input Features for Prediction
 
-The model uses four key atmospheric features, which are extracted from the live OpenWeatherMap data:
+The model uses the following live atmospheric data as inputs:
 
 1.  **Temperature** (`temp`)
 2.  **Humidity** (`humidity`)
@@ -42,19 +52,45 @@ The model uses four key atmospheric features, which are extracted from the live 
 
 ### 3. Model Performance (Accuracy)
 
-The model was trained to identify patterns highly indicative of rain.
-
-| Metric | Achieved Value (on test set) | Note |
+| Metric | Achieved Value (on test set) | Notes |
 | :---: | :---: | :--- |
-| **Accuracy** | **$99.00\%$** | This high score demonstrates the model's strong classification ability on the training dataset. |
+| **Accuracy** | **$99.00\%$** | High classification accuracy achieved on the synthetic training dataset. |
 
 ---
 
-## 📹 Project Demonstration Video
+## 🧰 Tech Stack
 
-Showcase your application in action! Replace the placeholder link and image below with your actual YouTube video link and a screenshot of your video thumbnail.
+- Python 3.x (Backend)
+- Flask (Web Framework)
+- scikit-learn & joblib (ML Model Management)
+- JavaScript & **Leaflet.js** (Frontend & Mapping)
+- pandas (Data Preparation)
 
-```markdown
-[![Watch the App Demo](https://drive.google.com/file/d/1h2zLxATfggSXXizvY9eTxDyYera7Sq7V/view?usp=sharing)](YOUR_FULL_YOUTUBE_LINK)
+---
 
-**[Click here to watch the full application demonstration]** (Replace with your direct video link)
+## ⚙️ How to Run Locally
+
+To run this project, ensure you have both the Python backend and the HTML frontend configured.
+
+### Prerequisites
+
+1.  A valid OpenWeatherMap API Key (currently hardcoded in `app.py`).
+2.  Python installed.
+
+### 1. Backend Setup (Flask Server)
+
+1.  Clone the repository and install the required libraries:
+    ```bash
+    pip install flask flask-cors requests pandas joblib scikit-learn
+    ```
+2.  Ensure the trained model file **`rain_predictor_model.pkl`** is in the root directory.
+3.  Start the Flask server:
+    ```bash
+    python app.py
+    ```
+    The server will run on `http://127.0.0.1:5000`.
+
+### 2. Frontend Launch
+
+1.  Open the `index.html` file directly in your web browser (Chrome, Firefox, etc.).
+2.  The application will automatically connect to the running Flask backend to fetch data and run the AI prediction.
