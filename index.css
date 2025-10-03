@@ -1,0 +1,93 @@
+body{
+    background-color: hsl(231.43deg 48.84% 8.43%);
+}
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+.navv{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 10px 350px;
+    background-color: hsl(231.43deg 48.84% 8.43%);
+    position: fixed;
+    width: 60%;
+}
+.brand span{
+    color: hsl(210.97deg 52.54% 53.73%);
+}
+nav ul{
+    display: flex;
+    gap: 50px;
+    list-style: none;
+    color: hsl(229.66deg 12.34% 46.08%);
+}
+nav ul li a{
+    color: hsl(229.66deg 12.34% 46.08%);
+
+}
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    padding: 140px;
+}
+.badge {
+  display: inline-block;
+  background: #06685483;      
+  color: hsl(148.42deg 52.78% 57.65%);
+  font-size: 14px;
+  font-weight: bold;
+  padding: 4px 12px;
+  margin-left: 250px;
+  border-radius: 20px;     
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+.im img{
+    width: 300px;               
+    border-radius: 10px;
+    border: 10px solid rgba(66, 60, 60, 0.253);
+}
+.text{
+    max-width: 500px;
+    text-align: right;
+    direction: rtl;
+}
+.text h1{
+    font-size: 58px;
+    margin-bottom: 20px;
+    color: white;
+}
+.text p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    word-spacing: 10px;
+    color: rgba(255, 255, 255, 0.288);
+}
+.text .bu1{
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #1b2431;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+.text .bu {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #1a73e8;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
