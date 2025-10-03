@@ -12,8 +12,8 @@ This project provides users with current weather information and a multi-day for
 
 ## 🎥 Demo Video
 📺 Watch the full application demo here:
+https://github.com/user-attachments/assets/a9282ecb-6cbb-45c9-9462-aedb0a778b2f
 
-[شاهد العرض التوضيحي الكامل على Google Drive](https://drive.google.com/file/d/1h2zLxATfggSXXizvY9eTxDyYera7Sq7V/view?usp=sharing)
 
 ---
 
