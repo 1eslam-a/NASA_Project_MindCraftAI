@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Weather Pro App — Enhanced</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" />
+    <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="stars" aria-hidden="true"></div>
+    <div class="meteors" aria-hidden="true"></div>
+
+    <header>
+        <div class="header-left">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg"
+        alt="NASA Logo"
+        class="nasa-logo"
+      />
+    </div>
+    
+    <div>
+        <h1><span style="font-size: 1.2em;">☔</span> Weather Pro</h1>
+        <p>Current Weather & 5-Day Forecast — Powered by Machine Learning</p>
+        <button id="mode-toggle" onclick="toggleTheme()">☀️</button>
+    </div>
+        <div class="header-right">
+      <h1>MindCraftAI 🚀</h1>
+    </div>
+    </header>
+
+    <div id="controls">
+        <input id="cityInput" placeholder="Enter City Name (e.g., London, Cairo)" value="Cairo" />
+        <button class="btn" onclick="getWeatherByCity()">Search</button>
+        <button class="btn ghost" onclick="getWeatherByLocation()">
+            📍 My Location
+        </button>
+       
+        <input type="hidden" id="latInput" value="30.0444">
+        <input type="hidden" id="lonInput" value="31.2357">
+    </div>
+
+    <div class="layout">
+        <div id="map" aria-label="Map" onclick="onMapClickExternal(event)"></div>
+
+        <div class="rightcol">
+            <div id="weatherCard" aria-live="polite">
+                <div id="cityName">--</div>
+                <img id="icon" src="https://openweathermap.org/img/wn/01d@4x.png" alt="weather icon" />
+                <div id="description" class="muted">Loading...</div>
+                
+                
+
+                <div class="weather-stats">
+                    <div class="weather-stat">
+                        <strong><span style="font-size: 1.2em;">🌡</span> Temp:</strong> <span id="temp">--</span>°C
+                    </div>
+                    <div class="weather-stat">
+                        <strong><span style="font-size: 1.2em;">💧</span> Humidity:</strong> <span id="humidity">--</span>%
+                    </div>
+                    <div class="weather-stat">
+                        <strong><span style="font-size: 1.2em;">💨</span> Wind:</strong> <span id="wind">--</span> m/s
+                    </div>
+                    <div class="weather-stat">
+                        <strong><span style="font-size: 1.2em;">☁️</span> Clouds:</strong> <span id="clouds">--</span>%
+                    </div>
+                </div>
+
+                <div id="rainAlertArea"></div>
+            </div>
+
+            <div id="forecast" aria-label="5 day forecast"></div>
+        </div>
+    </div>
+
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
